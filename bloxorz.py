@@ -57,8 +57,7 @@ def reconstruct_path(current:Node) -> List[tuple]:
     return ''.join(path[::-1])
 
 def get_heuristic(current:Node, end:Node) -> int:
-    return max(abs(current.x2 - end.x1), abs(current.y2 - end.y1))
-    #return abs(current.x2 - end.x1) + abs(current.y2 - end.y1)
+    return 1/4 * max(max(abs(current.x1 - end.x1), abs(current.y1 - end.y1)), max(abs(current.x2 - end.x2), abs(current.y2 - end.y2)))
 
 def get_neighbors(current:Node, grid:List[List[str]]) -> List[Node]:
     if current.x1 == current.x2 and current.y1 == current.y2:
